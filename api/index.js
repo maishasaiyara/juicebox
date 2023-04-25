@@ -4,4 +4,8 @@ const apiRouter = express.Router();
 const usersRouter = require('./users');
 apiRouter.use('/users', usersRouter);
 
-module.exports = apiRouter;
+const postsRouter = require('./posts');
+apiRouter.use('/posts', postsRouter);
+
+module.exports = apiRouter, 
+module.exports = postsRouter;
