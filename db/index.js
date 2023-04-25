@@ -52,6 +52,16 @@ async function updateUser(id, fields = {}) {
     }
 }
 
+async function getAllTags() {
+  try{
+      const { rows } = await client.query(`SELECT * FROM tags;`);
+
+  return rows;
+}   catch (error) {
+  throw error;
+}
+}
+
 async function getUserById(userId) {
     try {
       const { rows: [ user ] } = await client.query(`
@@ -133,8 +143,6 @@ async function getUserById(userId) {
     }
     }
   
-
-
  
   async function updatePost(postId, fields = {}) {
 
@@ -313,6 +321,7 @@ async function getUserById(userId) {
     getPostsByUser,
     createPostTag,
     addTagsToPost,
-    getPostById
+    getPostById,
+    getAllTags
 
 }
